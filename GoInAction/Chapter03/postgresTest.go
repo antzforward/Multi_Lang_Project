@@ -2,17 +2,18 @@ package main
 
 // 这里重要介绍，没有使用的包，但是会调用它包内的公开的init函数
 import (
-	"fmt"
 	"database/sql"
-	_"github.com/goinaction/code/chapter3/dbdriver/postgres" //这个会自动从网络下载，很强啊
+	"fmt"
+	_ "github.com/goinaction/code/chapter3/dbdriver/postgres" //这个会自动从网络下载，很强啊
 )
 
-func main(){
-	db, _ :=sql.Open("postgres", "mydb") 
+func main() {
+	db, _ := sql.Open("postgres", "mydb")
 	defer db.Close()
 	fmt.Println("Old School Work!")
 }
-// 【2025-4-1】 
+
+// 【2025-4-1】
 // _"github.com/goinaction/code/chapter3/dbdriver/postgres" 看来这个方式是旧的方式。
 // 给自己的文件夹起个名字，嗯 一个文件夹只要做一次就可以了
 //1. go mod init mygoinaction.chapter03.mod
